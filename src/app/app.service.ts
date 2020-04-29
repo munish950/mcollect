@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { Gallery } from './model/gallery';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AppService {
-    constructor( private http: HttpClient) {}
     url = 'http://localhost:2145/filmography/';
+    constructor( private http: HttpClient) {}
 
-    getMoviesList() {
-        return this.http.get(this.url);
+    getMoviesList(): Observable<Gallery[]> {
+        return this.http.get<Gallery[]>(this.url);
     }
 
 }

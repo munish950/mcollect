@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { WatchlistComponent } from './profile/watchlist/watchlist.component';
 import { AppRouteModule } from './app.router.module';
 import { FeatureImagesComponent } from './feature-images/feature-images.component';
+import { GalleryModule } from './gallery/gallery.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FeatureImagesComponent } from './feature-images/feature-images.componen
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRouteModule
+    AppRouteModule,
+    GalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
