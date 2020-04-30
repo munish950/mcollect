@@ -1,11 +1,11 @@
-<mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let galleryItem of galleryList$">
-    <mat-card>
+<!--<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let galleryItem of galleryList$">-->
+    <mat-card *ngFor="let galleryItem of galleryList$">
       <mat-card-header>    
           <mat-card-title>{{galleryItem.name}}</mat-card-title>    
       </mat-card-header>
     
-      <img mat-card-image [src]="'./assets/images/sr_img/'+ galleryItem.image">    
+      <img mat-card-image [src]="galleryItem.image">    
       <mat-card-content>
           <p>{{galleryItem.description}}</p>
       </mat-card-content>
@@ -27,7 +27,7 @@
     
     </mat-card>
 
-  </mat-grid-tile>
+  <!--</mat-grid-tile>
 
-</mat-grid-list>
+</mat-grid-list>-->
 
