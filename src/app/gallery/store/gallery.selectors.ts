@@ -3,7 +3,7 @@ import { GalleryState } from './gallery.state';
 
 const featureGallerySelector = createFeatureSelector<GalleryState>('gallery');
 
-const getGallery = createSelector(
+export const getGallery = createSelector(
     featureGallerySelector,
     gallery => gallery
 );

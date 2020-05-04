@@ -5,7 +5,7 @@
       </span>
       <a mat-button routerLink="/profile" routerLinkActive="active">Profile</a>
       <a mat-button routerLink="/gallery">Library</a>
-      <a mat-button routerLink="/login">Login</a>
-      <a mat-button routerLink="/logout">Logout</a>
+      <a *ngIf="isLoggedOut$ | async" mat-button routerLink="/login">Login</a>
+      <a *ngIf="isLoggedIn$ | async" mat-button routerLink="/logout">Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>
