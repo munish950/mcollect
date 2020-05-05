@@ -1,0 +1,46 @@
+<mat-card class="profile-page">
+  <mat-card-title>Profile</mat-card-title>
+  <mat-card-content>
+      <form class="profile-form" [formGroup]="profileForm" (ngSubmit)="submit()">
+          <mat-form-field>
+              <input matInput 
+              type="text" 
+              placeholder="Name"
+              formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput 
+              type="date" 
+              placeholder="DOB"
+              formControlName="dob">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput 
+            type="text" 
+            placeholder="Country"
+            formControlName="country">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput 
+          type="text" 
+          placeholder="Language"
+          formControlName="language">
+        </mat-form-field>
+        
+        <div class="action-btn">
+          <button type="submit" mat-raised-button 
+          color="primary" [disabled]="!profileForm.valid">Submit</button>
+          <!--<button mat-raised-button color="primary" (click)="submit()">Submit</button>-->
+        <button mat-raised-button 
+        color="warn" 
+        (click)="cancel()" class="cancel-btn">Cancel</button>
+        </div>
+        
+
+      </form>
+  </mat-card-content>
+</mat-card>
+

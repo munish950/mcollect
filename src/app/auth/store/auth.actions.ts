@@ -1,9 +1,11 @@
 import { Action } from '@ngrx/store';
-import { User } from '../user.model';
+import { User, UpdateUser , UserProfile} from '../user.model';
 
 export enum AuthActionTypes {
     LOGIN = '[Login Page] Login',
-    LOGOUT = 'LOGOUT'
+    LOGOUT = 'LOGOUT',
+    UPDATE_PROFILE = '[Profile Page] Update Profile',
+    PROFILE_UPDATED = '[Profile Effect] Profile Updated',
 }
 
 export class AuthLogin implements Action {
@@ -15,4 +17,22 @@ export class AuthLogout implements Action {
     readonly type = AuthActionTypes.LOGOUT;
 }
 
-export type AuthActions = AuthLogin | AuthLogout;
+export class UserProfileUpdate implements Action {
+    readonly type = AuthActionTypes.UPDATE_PROFILE;
+    constructor(public payload: {
+        userId: number,
+        profile: {
+            name: string;
+            dob: string;
+            country: string;
+            language: string;
+        }
+    }) {}
+}
+
+export class UserProfileUpdated implements Action {
+    readonly type = AuthActionTypes.PROFILE_UPDATED;
+    constructor(public payload: any) {}
+}
+
+export type AuthActions = AuthLogin | AuthLogout | UserProfileUpdate | UserProfileUpdated;

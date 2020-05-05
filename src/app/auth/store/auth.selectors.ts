@@ -3,15 +3,18 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 const authFeatureSelector = createFeatureSelector<AuthState>('auth');
 
-export const isLoggedIn = createSelector(
+export const selectProfile = createSelector(
     authFeatureSelector,
     (auth) => {
         if (auth && auth.hasOwnProperty('user') && auth.user.hasOwnProperty('id')) {
-            return true;
-        } else {
-            return false;
+            return auth.user;
         }
     }
+);
+
+export const isLoggedIn = createSelector(
+    selectProfile,
+    auth => !!auth
 );
 
 export const isLoggedOut = createSelector(

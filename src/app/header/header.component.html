@@ -3,9 +3,9 @@
       <span>
         <a mat-button routerLink = "" > <img  src="./assets/images/logo.png" style="width:50px;"></a>
       </span>
-      <a mat-button routerLink="/profile" routerLinkActive="active">Profile</a>
       <a mat-button routerLink="/gallery">Library</a>
-      <a *ngIf="isLoggedOut$ | async" mat-button routerLink="/login">Login</a>
-      <a *ngIf="isLoggedIn$ | async" mat-button routerLink="/logout">Logout</a>
+      <a *ngIf="isLoggedOut$ | async" mat-button routerLink="/auth">Login</a>
+      <a *ngIf="isLoggedIn$ | async" mat-button routerLink="/auth/profile" routerLinkActive="active">Profile</a>
+      <a *ngIf="isLoggedIn$ | async" mat-button (click)="logout()">Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>
