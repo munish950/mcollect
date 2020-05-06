@@ -13,7 +13,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 
-import { WatchlistComponent } from './watchlist/watchlist.component';
 import { AppRouteModule } from './app.router.module';
 import { FeatureImagesComponent } from './feature-images/feature-images.component';
 import { GalleryModule } from './gallery/gallery.module';
@@ -23,7 +22,6 @@ import { GalleryModule } from './gallery/gallery.module';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    WatchlistComponent,
     FeatureImagesComponent
   ],
   imports: [

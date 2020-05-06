@@ -1,33 +1,4 @@
-<!--<mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let galleryItem of galleryList$">-->
-    <mat-card *ngFor="let galleryItem of galleryList$">
-      <mat-card-header>    
-          <mat-card-title>{{galleryItem.name}}</mat-card-title>    
-      </mat-card-header>
-    
-      <img mat-card-image [src]="galleryItem.image">    
-      <mat-card-content>
-          <p>{{galleryItem.description}}</p>
-      </mat-card-content>
-    
-      <mat-card-actions class="course-actions">
-          <button mat-raised-button color="primary">
-              Details
-          </button>        
-        <!--
-        <button mat-mini-fab color="accent">
-          <mat-icon class="add-course-btn" (click)="editCourse(course)">edit</mat-icon>
-        </button>
-    
-        <button mat-mini-fab color="warn">
-          <mat-icon class="add-course-btn" (click)="onDeleteCourse(course)">delete</mat-icon>
-        </button>
-        -->
-      </mat-card-actions>
-    
-    </mat-card>
-
-  <!--</mat-grid-tile>
-
-</mat-grid-list>-->
+<div class="top_list">
+    <app-movie-list [moviesList]="galleryList$"></app-movie-list>
+</div>
 

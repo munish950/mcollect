@@ -11,15 +11,20 @@ import { authReducer } from './store/auth.reducer';
 import { ProfileComponent } from './profile/profile.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/auth.effects';
+import { AuthGuard } from './auth.guard';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 const routes: Routes = [
-  {path: '', component: AuthComponent},
-  { path: 'profile', component: ProfileComponent },
+  { path: '', component: AuthComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'watchlist', component: WatchlistComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
   declarations: [
-    AuthComponent, ProfileComponent
+    AuthComponent,
+    ProfileComponent,
+    WatchlistComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +35,6 @@ const routes: Routes = [
     StoreModule.forFeature('auth', authReducer),
     EffectsModule.forFeature([AuthEffects])
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
 })
 export class AuthModule { }

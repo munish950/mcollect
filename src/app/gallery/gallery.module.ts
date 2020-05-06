@@ -6,16 +6,17 @@ import { EffectsModule } from '@ngrx/effects';
 import { GalleryComponent } from './gallery.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
-import { ArticleCardComponent } from './article-card/article-card.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 import { galleryReducer } from './store/gallery.reducer';
 import { GalleryEffects } from './store/gallery.effects';
+import { MovieListComponent } from './movie-list/movie-list.component';
 
 const routes: Routes = [
   {path: '', component: GalleryComponent}
 ];
 
 @NgModule({
-  declarations: [GalleryComponent, ArticleCardComponent],
+  declarations: [GalleryComponent, MovieCardComponent, MovieListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

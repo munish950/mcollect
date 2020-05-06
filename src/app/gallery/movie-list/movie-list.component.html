@@ -1,0 +1,16 @@
+<mat-card *ngFor="let galleryItem of moviesList">
+  <mat-card-header>    
+      <mat-card-title>{{galleryItem.name}}</mat-card-title>    
+  </mat-card-header>
+
+  <img mat-card-image [src]="galleryItem.image">    
+  <mat-card-content>
+      <p>{{galleryItem.description}}</p>
+  </mat-card-content>
+
+  <mat-card-actions class="course-actions">
+      <button mat-raised-button color="primary">
+          Details
+      </button>
+  </mat-card-actions>
+</mat-card>

@@ -21,8 +21,7 @@ export class AuthEffects {
                     map(
                         response => {
                             if (response.code === 200 && response.msg === 'OK') {
-                                console.log('SUCCESS', action['payload']['profile']);
-                                //
+                                // console.log('SUCCESS', action['payload']['profile']);
                                 return new UserProfileUpdated(action['payload']['profile']);
                             } else {
                                 throw new Error(response.msg);

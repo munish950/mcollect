@@ -6,8 +6,6 @@ import { Store, select } from '@ngrx/store';
 import { GalleryState } from './store/gallery.state';
 import { map, tap, filter } from 'rxjs/operators';
 import { getGallery } from './store/gallery.selectors';
-import { debug } from 'util';
-import { CssSelector } from '@angular/compiler';
 import { Observable } from 'rxjs';
 
 @Component({
