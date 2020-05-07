@@ -5,7 +5,6 @@ export interface User {
     dob: string;
     country: string;
     language: string;
-    watchlist: string;
 }
 
 export interface UpdateUser {
@@ -15,7 +14,6 @@ export interface UpdateUser {
         dob: string;
         country: string;
         language: string;
-        watchlist: string;
     };
 }
 
@@ -24,5 +22,4 @@ export interface UserProfile {
     dob: string;
     country: string;
     language: string;
-    watchlist: string;
 }

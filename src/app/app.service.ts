@@ -15,4 +15,9 @@ export class AppService {
         return this.http.get<Gallery[]>(this.url);
     }
 
+    getWatchlist(userId: number): Observable<Gallery[]> {
+        return this.http.post<Gallery[]>(this.url + 'watchlist',
+            JSON.stringify({userId: userId}));
+    }
+
 }

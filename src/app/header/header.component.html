@@ -6,7 +6,7 @@
       <a mat-button routerLink="/gallery">Library</a>
       <a *ngIf="isLoggedOut$ | async" mat-button routerLink="/auth">Login</a>
       <a *ngIf="isLoggedIn$ | async" mat-button routerLink="/auth/profile" routerLinkActive="active">Profile</a>
-      <a *ngIf="isLoggedIn$ | async" mat-button routerLink="/auth/watchlist">My Watchlist</a>
+      <a *ngIf="isLoggedIn$ | async" mat-button routerLink="/watchlist">My Watchlist</a>
       <a *ngIf="isLoggedIn$ | async" mat-button (click)="logout()">Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>

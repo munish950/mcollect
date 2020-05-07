@@ -1,0 +1,19 @@
+<div class="top_list">
+  <mat-card *ngFor="let watchlist of watchlist$">
+    <mat-card-header>    
+        <mat-card-title>{{watchlist.name}}</mat-card-title>    
+    </mat-card-header>
+  
+    <img mat-card-image [src]="watchlist.image">    
+    <mat-card-content>
+        <p>{{watchlist.description}}</p>
+    </mat-card-content>
+  
+    <mat-card-actions class="course-actions">
+        <button mat-raised-button color="primary">
+            Details
+        </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

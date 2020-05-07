@@ -12,19 +12,16 @@ import { ProfileComponent } from './profile/profile.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/auth.effects';
 import { AuthGuard } from './auth.guard';
-import { WatchlistComponent } from './watchlist/watchlist.component';
 
 const routes: Routes = [
   { path: '', component: AuthComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'watchlist', component: WatchlistComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
   declarations: [
     AuthComponent,
-    ProfileComponent,
-    WatchlistComponent
+    ProfileComponent
   ],
   imports: [
     CommonModule,
