@@ -5,8 +5,10 @@
       </span>
       <a mat-button routerLink="/gallery">Library</a>
       <a *ngIf="isLoggedOut$ | async" mat-button routerLink="/auth">Login</a>
-      <a *ngIf="isLoggedIn$ | async" mat-button routerLink="/auth/profile" routerLinkActive="active">Profile</a>
-      <a *ngIf="isLoggedIn$ | async" mat-button routerLink="/watchlist">My Watchlist</a>
-      <a *ngIf="isLoggedIn$ | async" mat-button (click)="logout()">Logout</a>
+      <ng-container *ngIf="isLoggedIn$ | async">
+        <a mat-button routerLink="/auth/profile" routerLinkActive="active">Profile</a>
+        <a mat-button routerLink="/watchlist">My Watchlist</a>
+        <a mat-button (click)="logout()">Logout</a>
+      </ng-container>
   </mat-toolbar-row>
 </mat-toolbar>

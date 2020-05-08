@@ -1,5 +1,5 @@
 <div class="top_list">
-  <mat-card *ngFor="let watchlist of watchlist$">
+  <mat-card *ngFor="let watchlist of watchlist$ | async">
     <mat-card-header>    
         <mat-card-title>{{watchlist.name}}</mat-card-title>    
     </mat-card-header>

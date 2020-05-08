@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "movieinfo": {
+      "root": "projects/movieinfo",
+      "sourceRoot": "projects/movieinfo/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/movieinfo/tsconfig.lib.json",
+            "project": "projects/movieinfo/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/movieinfo/src/test.ts",
+            "tsConfig": "projects/movieinfo/tsconfig.spec.json",
+            "karmaConfig": "projects/movieinfo/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/movieinfo/tsconfig.lib.json",
+              "projects/movieinfo/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "http"

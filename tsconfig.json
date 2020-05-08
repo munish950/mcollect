@@ -17,6 +17,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "movieinfo": [
+        "dist/movieinfo"
+      ],
+      "movieinfo/*": [
+        "dist/movieinfo/*"
+      ]
+    }
   }
 }

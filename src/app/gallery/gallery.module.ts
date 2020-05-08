@@ -5,22 +5,22 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { GalleryComponent } from './gallery.component';
 import { Routes, RouterModule } from '@angular/router';
-import { MaterialModule } from '../material.module';
-import { MovieCardComponent } from './movie-card/movie-card.component';
+// import { MaterialModule } from '../material.module';
 import { galleryReducer } from './store/gallery.reducer';
 import { GalleryEffects } from './store/gallery.effects';
-import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieinfoModule, MaterialModule } from 'movieinfo';
 
 const routes: Routes = [
   {path: '', component: GalleryComponent}
 ];
 
 @NgModule({
-  declarations: [GalleryComponent, MovieCardComponent, MovieListComponent],
+  declarations: [GalleryComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     MaterialModule,
+    MovieinfoModule,
     EffectsModule.forFeature([GalleryEffects]),
     StoreModule.forFeature('gallery', galleryReducer)
   ]

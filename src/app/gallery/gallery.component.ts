@@ -14,30 +14,28 @@ import { Observable } from 'rxjs';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-  // galleryList$: Observable<Gallery[]>;
-  galleryList$: Gallery[];
+  galleryList$: Observable<Gallery[]>;
+  // galleryList$: Gallery[];
 
   constructor(private appService: AppService, private store: Store<GalleryState>) { }
 
   ngOnInit() {
-  this.store.pipe(
-      select(getGallery),
-      tap(
-        data => {
-          if (!data.movies.length) {
-            this.store.dispatch(new LoadGallery);
+    this.galleryList$ = this.store.pipe(
+        select(getGallery),
+        tap(
+          data => {
+            if (!data.movies.length) {
+              this.store.dispatch(new LoadGallery);
+            }
           }
-        }
-      ),
-      map(
-        moviesData => {
-          return moviesData.movies;
-        }
-      )
-    ).subscribe(
-      data => this.galleryList$ = data
-    );
-    
+        ),
+        map(
+          moviesData => {
+            return moviesData.movies;
+          }
+        )
+      );
+      
     // this.store.dispatch(new LoadGallery);
     /*
     this.appService.getMoviesList().subscribe(
