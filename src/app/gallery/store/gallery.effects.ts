@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { concatMap, map } from 'rxjs/operators';
 import { AppService } from 'src/app/app.service';
-import { GalleryActionTypes, GalleryLoaded } from './gallery.actions';
+import { GalleryActionTypes, GalleryLoaded, LoadMovieDetail, MovieDetailLoaded } from './gallery.actions';
 
 @Injectable()
 export class GalleryEffects {
@@ -21,7 +21,19 @@ export class GalleryEffects {
                         galleryData => new GalleryLoaded(galleryData)
                     )
                 )
-        ),
+        )
+    );
 
+    @Effect()
+    loadMovie$ = this.action$.pipe(
+        ofType<LoadMovieDetail>(GalleryActionTypes.LOAD_MOVIE),
+        concatMap(
+            action => this.appService.getMovieDetails(action.payload)
+                .pipe(
+                    map(
+                        movieData => new MovieDetailLoaded({id: action.payload, movieDetail: movieData})
+                    )
+                )
+        )
     );
 }

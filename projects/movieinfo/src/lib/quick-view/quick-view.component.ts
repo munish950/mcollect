@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-quick-view',
@@ -8,9 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class QuickViewComponent implements OnInit {
   @Input()
   moviesList = [];
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
+  }
+
+  onNavigate(id: string) {
+    this.route.navigateByUrl('/gallery/' + id);
   }
 
 }

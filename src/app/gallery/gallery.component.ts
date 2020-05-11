@@ -10,8 +10,9 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  template: `<div class="top_list">
+    <lib-quick-view [moviesList]="galleryList$ | async"></lib-quick-view>
+  </div>`
 })
 export class GalleryComponent implements OnInit {
   galleryList$: Observable<Gallery[]>;
