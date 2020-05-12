@@ -17,7 +17,8 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
   ],
   exports: [
     MovieinfoComponent,
-    QuickViewComponent
+    QuickViewComponent,
+    DetailViewComponent
   ]
 })
 export class MovieinfoModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'lib-detail-view',
@@ -6,7 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-view.component.css']
 })
 export class DetailViewComponent implements OnInit {
-
+  @Input()
+  movieInfo: {
+    id: number;
+    name: string;
+    year: number;
+    rating: string;
+    summary: string;
+    certificate: string;
+    category: string;
+    image: string;
+    director: string;
+  };
   constructor() { }
 
   ngOnInit() {

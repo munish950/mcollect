@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'lib-quick-view',
@@ -9,6 +10,13 @@ import { Router } from '@angular/router';
 export class QuickViewComponent implements OnInit {
   @Input()
   moviesList = [];
+  /*
+  @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.viewport.checkViewportSize();
+  }
+  */
   constructor(private route: Router) { }
 
   ngOnInit() {

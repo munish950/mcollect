@@ -1,4 +1,28 @@
-<mat-card *ngFor="let galleryItem of moviesList">
+<cdk-virtual-scroll-viewport itemSize="20" class="list-viewport">
+    <!--<div *cdkVirtualFor="let galleryItem of moviesList" class="example-item">
+        <div>{{galleryItem.name}}</div>
+        <div>{{galleryItem.id}}</div>
+    </div>-->
+    <mat-card *cdkVirtualFor="let galleryItem of moviesList" class="list-item">
+        <mat-card-header>    
+            <mat-card-title>{{galleryItem.name}}</mat-card-title>    
+        </mat-card-header>
+      
+        <img mat-card-image [src]="galleryItem.image">    
+        <mat-card-content>
+            <p>{{galleryItem.description}}</p>
+        </mat-card-content>
+      
+        <mat-card-actions class="course-actions">
+            <button mat-raised-button color="primary" (click)="onNavigate(galleryItem.id)">
+                Details
+            </button>
+        </mat-card-actions>
+      </mat-card>
+</cdk-virtual-scroll-viewport>
+
+
+<!--<mat-card *ngFor="let galleryItem of moviesList">
   <mat-card-header>    
       <mat-card-title>{{galleryItem.name}}</mat-card-title>    
   </mat-card-header>
@@ -13,4 +37,4 @@
           Details
       </button>
   </mat-card-actions>
-</mat-card>
+</mat-card>-->

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import {
     MatToolbarModule,
     MatButtonModule,
@@ -19,7 +20,8 @@ import {
         MatGridListModule,
         MatListModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        ScrollingModule
     ],
     exports: [
         MatToolbarModule,
@@ -29,7 +31,8 @@ import {
         MatGridListModule,
         MatListModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        ScrollingModule
     ]
 })
 

@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="head_tab">
+        <div class="filter_btn">
+            <mat-icon>filter_list</mat-icon>
+        </div>
+        <div class="search_list">
+            <input type="text" matInput placeholder="Search Movie">
+        </div>
+    </div>
+    <lib-quick-view [moviesList]="galleryList$ | async"></lib-quick-view>
+  </div>

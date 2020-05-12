@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { tap, map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { LoadMovieDetail } from '../store/gallery.actions';
 import { MovieDetail } from 'src/app/model/gallery';
-import { ActivatedRoute } from '@angular/router';
 import { getMovie } from '../store/gallery.selectors';
-import { Observable } from 'rxjs';
 
 
 @Component({
   selector: 'app-movie-detail',
-  templateUrl: './movie-detail.component.html',
-  styleUrls: ['./movie-detail.component.css']
+  template: `<div class="container" *ngIf="movieDetails$ | async as movieDetails">
+              <lib-detail-view [movieInfo]="movieDetails"></lib-detail-view>
+            </div>`
 })
 export class MovieDetailComponent implements OnInit {
   movieId: number;
@@ -30,7 +31,7 @@ export class MovieDetailComponent implements OnInit {
         this.movieId = Number(urlData.id);
       }
     );*/
-    console.log(this.activateRoute.snapshot.params.id);
+    // console.log(this.activateRoute.snapshot.params.id);
     this.movieId = this.activateRoute.snapshot.params.id;
 
     this.movieDetails$ = this.store.pipe(
