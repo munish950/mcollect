@@ -1,0 +1,20 @@
+
+<div class="search_box">
+    <form class="search-form" [formGroup]="searchForm">
+        <mat-form-field class="search-full-width">
+          <mat-label>Search Movie</mat-label>
+          <input matInput placeholder="Movie Name" formControlName="term" 
+          placeholder="eg. godfather">
+        </mat-form-field>      
+    </form>
+    
+    <mat-list role="list" class="search_result" *ngIf="hasResult; else noResult">
+        <a mat-list-item href="{{'/gallery/' + result.id}}" 
+        *ngFor="let result of searchResult$ | async"> 
+        {{result.name}} - {{result.year}}</a>        
+    </mat-list>
+
+    <ng-template #noResult class="search_result">
+        <p>No Result Found</p>
+    </ng-template>
+</div>

@@ -24,4 +24,8 @@ export class AppService {
         return this.http.get<MovieDetail>(this.url + 'film/' + movieId);
     }
 
+    searchMovie(term: string): Observable<Gallery[]> {
+        return this.http.get<Gallery[]>(this.url + 'films/search/' + term);
+    }
+
 }
