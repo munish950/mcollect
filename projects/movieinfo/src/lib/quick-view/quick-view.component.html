@@ -3,7 +3,7 @@
         <div>{{galleryItem.name}}</div>
         <div>{{galleryItem.id}}</div>
     </div>-->
-    <mat-card *cdkVirtualFor="let galleryItem of moviesList" class="list-item">
+    <mat-card *cdkVirtualFor="let galleryItem of moviesList" class="list-item" itemSize="50">
         <mat-card-header>    
             <mat-card-title>{{galleryItem.name}}</mat-card-title>    
         </mat-card-header>

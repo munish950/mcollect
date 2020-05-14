@@ -15,13 +15,14 @@ import { HomeComponent } from './home/home.component';
 import { AppRouteModule } from './app.router.module';
 import { FeatureImagesComponent } from './feature-images/feature-images.component';
 import { GalleryModule } from './gallery/gallery.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    FeatureImagesComponent
+    FeatureImagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +32,7 @@ import { GalleryModule } from './gallery/gallery.module';
     MaterialModule,
     AppRouteModule,
     GalleryModule,
+    SharedModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
