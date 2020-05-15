@@ -7,6 +7,9 @@ import { AuthLogout } from '../auth/store/auth.actions';
 import { Router } from '@angular/router';
 import { DialogComponent } from '../shared/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ErrorState } from '../store/error.state';
+import { errorSelector } from '../store/error.selectors';
+import { AddGlobalError } from '../store/error.actions';
 
 @Component({
   selector: 'app-header',
@@ -17,13 +20,14 @@ export class HeaderComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   isLoggedOut$: Observable<boolean>;
 
-  animal: string;
-  name: string;
+  error$: Observable<any>;
 
   constructor(
     private store: Store<AuthState>,
     private router: Router,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private errorStore: Store<ErrorState>
+    ) { }
 
   ngOnInit() {
     this.isLoggedIn$ = this.store.pipe(
@@ -37,6 +41,10 @@ export class HeaderComponent implements OnInit {
 
     // this.isLoggedOut$.subscribe(data => console.log('LOG OUT', data));
 
+    this.error$ = this.errorStore.pipe(
+      select(errorSelector)
+    );
+
   }
 
   logout() {
@@ -44,6 +52,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/auth');
   }
 
+  onCloseMsg() {
+    this.errorStore.dispatch(new AddGlobalError(null));
+  }
+  /*
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
@@ -55,5 +67,6 @@ export class HeaderComponent implements OnInit {
       this.animal = result;
     });
   }
+  */
 
 }

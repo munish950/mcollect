@@ -13,4 +13,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="error_div"></div>
+<div class="error_div" *ngIf="error$ | async as httpError">
+  {{httpError}}
+   <b class="close_msg" (click)="onCloseMsg()">X</b>
+</div>

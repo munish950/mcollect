@@ -8,7 +8,7 @@ import { Gallery, MovieDetail } from './model/gallery';
     providedIn: 'root'
 })
 export class AppService {
-    url = 'http://localhost:2145/filmography/';
+    url = 'http://localhost:2145/filmograph/';
     constructor( private http: HttpClient) {}
 
     getMoviesList(): Observable<Gallery[]> {
